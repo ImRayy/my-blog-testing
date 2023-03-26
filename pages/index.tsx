@@ -1,7 +1,7 @@
+import Social from "@/components/UI/Social";
+import Recent from "@/components/home/Recent";
 import { fetchMarkdownData } from "@/lib/fetchMd";
 import { InferGetStaticPropsType } from "next";
-import Recent from "@/components/home/Recent";
-import Social from "@/components/UI/Social";
 // import Button from "@/components/UI/Button";
 // import Theme from "@/components/Theme";
 import React from "react";

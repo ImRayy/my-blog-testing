@@ -1,8 +1,8 @@
 import { fetchMarkdownData } from "@/lib/fetchMd";
 import { InferGetStaticPropsType } from "next";
-import { IoMdArchive } from "react-icons/io";
 import Link from "next/link";
 import React from "react";
+import { IoMdArchive } from "react-icons/io";
 
 export const getStaticProps = async () => {
   const posts = await fetchMarkdownData();
@@ -14,7 +14,6 @@ export const getStaticProps = async () => {
 };
 const archive = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    // <div className="flex min-h-screen justify-center px-4 pt-20 dark:bg-primary dark:text-gray-300">
     <div className="w-full md:w-232">
       {/* Header */}
       <section className="flex w-full items-center gap-2 pb-4 font-bold uppercase tracking-wider text-gray-600 dark:text-gray-300">
@@ -36,7 +35,6 @@ const archive = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         ))}
       </section>
     </div>
-    // </div>
   );
 };
 

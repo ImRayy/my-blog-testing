@@ -19,17 +19,17 @@ Before following this or any guide first take a look at [lua-guide](https://neov
 
 #### Table of Content
 
-- [Install Packer](#install-packer)
-- [Intall Plugins](#install-plugins)
-- [Lazy Loading](#lazy-loading)
-- [Configure LSP](#configure-lsp)
-- [Options/Settings](#optionssettings)
-- [Keybindings](#keybindings)
-- [Must Try Plugins](#must-try-plugins)
+1. [Install Packer](#install-packer)
+2. [Intall Plugins](#install-plugins)
+3. [Lazy Loading](#lazy-loading)
+4. [Configure LSP](#configure-lsp)
+5. [Options/Settings](#optionssettings)
+6. [Keybindings](#keybindings)
+7. [Must Try Plugins](#must-try-plugins)
 
 **Here, have a look at my `~/.config/nvim` tree**
 
-```sh {linenos = false}
+```
 ├── init.lua
 ├── lua
 │   ├── core
@@ -89,7 +89,7 @@ end
 
 ```
 
-following script is similar to packer's default bootstrap script, I just modified it a bit. As you can see I used `pcall`(protected call) instead of using `require`, and it's highly recommended you do too as much as possible unless you love to stare at errors. If you followed lua-guide then you know whats going on. Well `vim.fn` assigned to `fn` as local variable and installation location assigned to `install_path`. BTW you noticed I'm using `vim.fn` instead of using `vim.api`, just know `vim.api = lua -> C` while `vim.fn = lua -> viml -> C` that means `vim.api` is faster and `vim.fn` is friendly to those who's switching to `lua` from `vimscript` but not slow either. `if fn.empty(fn.glob(install_path)) > 0` is used to validate existence of installation path and within if `vim.api.nvim_set_hl` is just part of packer customization. And rest code is not worth explaining cause not that hard to understand. In order to make bootstrap script working add following line to `~/.config/nvim/init.lua`
+following script is similar to packer's default bootstrap script, I just modified it a bit. As you can see I used `pcall{:lua}`(protected call) instead of using `require{:lua}`, and it's highly recommended you do too as much as possible unless you love to stare at errors. If you followed lua-guide then you know whats going on. Well `vim.fn` assigned to `fn` as local variable and installation location assigned to `install_path`. BTW you noticed I'm using `vim.fn` instead of using `vim.api`, just know `vim.api = lua -> C{:lua1}` while `vim.fn = lua -> viml -> C{:lua}` that means `vim.api` is faster and `vim.fn{:lua}` is friendly to those who's switching to `lua` from `vimscript` but not slow either. `if fn.empty(fn.glob(install_path)) > 0{:lua}` is used to validate existence of installation path and within if `vim.api.nvim_set_hl{:lua}` is just part of packer customization. And rest code is not worth explaining cause not that hard to understand. In order to make bootstrap script working add following line to `~/.config/nvim/init.lua`
 
 ```sh
 require(core.bootstrap)
@@ -166,7 +166,7 @@ end
 -- Plugin Configurations
 ```
 
-Note: Make sure to run `PackerSync` every time you add or delete a plugin, quick way to do it without launching NeoVim is `nvim +PackerSync`
+Note: Make sure to run `PackerSync{:bash}` every time you add or delete a plugin, quick way to do it without launching NeoVim is `nvim +PackerSync{:bash}`
 
 ## Configure LSP
 

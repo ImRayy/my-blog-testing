@@ -22,7 +22,7 @@ export default function Layout({ children }: LayoutProps) {
     <>
       <Header sidebarToggle={toggleHandler} />
       <Sidebar toggle={toggle} sidebarToggle={setToggle} />
-      <div className="flex min-h-screen select-none justify-center scroll-smooth bg-white px-4 pt-20 dark:bg-primary dark:text-gray-300">
+      <div className="flex min-h-screen justify-center scroll-smooth bg-white px-4 pt-20 dark:bg-primary dark:text-gray-300">
         <NextNProgress showOnShallow={true} />
         {children}
       </div>

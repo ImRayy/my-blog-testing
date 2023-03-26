@@ -1,5 +1,6 @@
-import React, { memo } from "react";
 import { cva, VariantProps } from "class-variance-authority";
+import React, { memo } from "react";
+
 const buttonVariants = cva(
   "active:scale-95 inline-flex relative items-center justify-center  text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 dark:hover:text-slate-100 disabled:opacity-50 dark:focus:ring-slate-400 disabled:pointer-events-none dark:focus:ring-offset-slate-900 data-[state=open]:bg-slate-100 dark:data-[state=open]:bg-slate-800 w-full",
   {
@@ -14,7 +15,7 @@ const buttonVariants = cva(
         outline:
           "bg-transparent border border-slate-200 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100",
         secondary:
-          "bg-slate-100 text-slate-900 hover:bg-slate-200 dark:hover:bg-hover dark:bg-accent dark:text-slate-100",
+          "bg-slate-100 text-slate-900 hover:bg-slate-200 dark:hover:bg-hover dark:bg-[#2E2E32] dark:text-slate-100",
         ghost:
           "bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-100 dark:hover:text-slate-100 data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent",
         link: "bg-transparent dark:bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-100 hover:bg-transparent dark:hover:bg-transparent",

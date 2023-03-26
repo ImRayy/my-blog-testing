@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from "fs";
 import matter from "gray-matter";
 import { join } from "path";
 
-// current mdx file path
+// Current mdx file path
 const path = join(process.cwd(), "content/posts");
 
 // Function to read all mdx files in given path and return slug, frontmatter and content

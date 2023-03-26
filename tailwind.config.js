@@ -9,10 +9,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#1e1e1e",
-        secondary: "#242424",
-        accent: "#2b2a2a",
-        hover: "#404040",
+        primary: "#18181b",
+        secondary: "#1f1f22",
+        accent: "#1f1f22",
+        hover: "#35353b",
         onedark: "#272c34",
         moonlight: "#212127",
       },
@@ -21,10 +21,14 @@ module.exports = {
         232: "55rem",
         120: "30rem",
       },
+      fontSize: {
+        md: "17px",
+      },
       fontFamily: {
         rubik: "'Rubik', sans-serif",
         ramettoOne: "'Rammetto One', cursive",
         josefinSans: "Josefin Sans, sans-serif",
+        atkinsonHyperlegible: "Atkinson Hyperlegible, sans-serif",
       },
       screens: {
         xs: "400px",

@@ -1,42 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Rammetto+One&family=Rubik&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Atkinson+Hyperlegible&family=Rammetto+One&family=Rubik&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* codeblock */
-code {
-  counter-reset: line;
-}
-
-code > .line::before {
-  counter-increment: line;
-  content: counter(line);
-
-  @apply mr-7 inline-block w-8 text-right text-gray-600;
-}
-
-code[data-line-numbers-max-digits="2"] > .line::before {
-  @apply w-6;
-}
-
-code[data-line-numbers-max-digits="3"] > .line::before {
-  @apply w-10;
-}
 
 /* Scrollbar */
 * ::-webkit-scrollbar {
   @apply h-2 w-2;
 }
 * ::-webkit-scrollbar-track {
-  @apply mx-1 rounded-md bg-transparent dark:bg-primary;
+  @apply mx-1 rounded-md bg-transparent;
 }
 * ::-webkit-scrollbar-thumb {
   @apply cursor-pointer rounded-md bg-gray-400;
 }
 .info-button {
   @apply flex h-8 items-center gap-2 whitespace-nowrap rounded-full bg-gray-200 px-4 font-medium dark:bg-hover;
-}
-/* Markdown */
-.markdown {
-  @apply prose max-w-full prose-pre:bg-moonlight dark:prose-headings:text-gray-300 dark:prose-p:text-gray-300 dark:prose-a:text-blue-400 dark:prose-blockquote:text-white dark:prose-strong:text-gray-100  dark:prose-code:rounded-md dark:prose-code:p-1 dark:prose-code:text-gray-100 dark:prose-li:text-gray-300;
 }

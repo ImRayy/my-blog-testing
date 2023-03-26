@@ -1,6 +1,7 @@
 import { extractDesc, wordCount } from "@/lib/helpers";
-import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
+
 interface RecentProps {
   title: string;
   date: number;
@@ -25,7 +26,7 @@ const Recent = ({
   return (
     <Link
       href={`/post/${slug}`}
-      className="relative mb-4 flex w-full cursor-pointer flex-col gap-2 overflow-hidden rounded-md bg-gray-100 py-6 px-4 transition-transform duration-150 active:scale-95 dark:bg-accent dark:text-gray-300 md:cursor-default"
+      className="relative mb-4 flex w-full cursor-pointer flex-col gap-2 overflow-hidden rounded-md bg-gray-100 px-6 py-4 transition-transform duration-150 active:scale-95 dark:bg-accent dark:text-gray-300 md:cursor-default"
     >
       <h2 className="text-lg font-semibold">{title}</h2>
       <p className="line-clamp-3">
