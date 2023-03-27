@@ -12,17 +12,17 @@ interface SidebarProps {
 }
 export default function Sidebar({ toggle, sidebarToggle }: SidebarProps) {
   return (
-    <div className="flex">
+    <div>
       <div
-        className={` ${
-          toggle && "translate-x-0 bg-opacity-60"
-        } fixed -translate-x-full bg-black bg-opacity-0 duration-500 transition-colors w-full left-0 h-full z-50 `}
+        className={`fixed bg-black transition-colors w-full left-0 h-full z-50  ${
+          toggle ? "translate-x-0 opacity-60" : "translate-x-full"
+        } `}
         onClick={() => sidebarToggle(false)}
       />
 
       <div
-        className={`flex fixed select-none z-50 w-80 h-full flex-col bg-white shadow-xl dark:bg-zinc-800 translate-x-full right-0 transition-transform duration-500 ${
-          toggle && "-translate-x-0"
+        className={`flex fixed transition-transform duration-500 z-50 w-80 h-full flex-col bg-white shadow-xl right-0 dark:bg-secondary dark:text-gray-300 ${
+          toggle ? "-translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="relative flex-1 px-2.5 overflow-y-scroll ">
@@ -30,7 +30,7 @@ export default function Sidebar({ toggle, sidebarToggle }: SidebarProps) {
 
           <div className="pt-4">
             <div className="relative">
-              <div className="h-36 overflow-hidden rounded-md">
+              <div className="h-36 overflow-hidden rounded-xl">
                 <img
                   src={config.sidebar.backdrop_image}
                   alt={config.sidebar.backdrop_image}
