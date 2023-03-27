@@ -1,6 +1,7 @@
-import Button from "./Button";
+import NavButton from "../sidebar/NavButton";
 import Divider from "./Divider";
 import Footer from "./Footer";
+import Social from "./Social";
 import { config } from "@/config/config";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
@@ -12,91 +13,71 @@ interface SidebarProps {
 }
 export default function Sidebar({ toggle, sidebarToggle }: SidebarProps) {
   return (
-    <div>
+    <div className="select-none">
       <div
-        className={`fixed bg-black transition-colors w-full left-0 h-full z-50  ${
-          toggle ? "translate-x-0 opacity-60" : "translate-x-full"
+        className={`fixed transition dark:bg-transparent bg-opacity-40 bg-black duration-500 backdrop-blur-sm w-full right-0 h-full z-50  ${
+          toggle ? "-translate-x-0 " : "translate-x-full"
         } `}
         onClick={() => sidebarToggle(false)}
       />
 
       <div
-        className={`flex fixed transition-transform duration-500 z-50 w-80 h-full flex-col bg-white shadow-xl right-0 dark:bg-secondary dark:text-gray-300 ${
-          toggle ? "-translate-x-0" : "translate-x-full"
+        className={`flex fixed transition-transform duration-500 z-50 w-80 h-full flex-col bg-white shadow-xl left-0 dark:bg-secondary dark:text-gray-300 ${
+          toggle ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="relative flex-1 px-2.5 overflow-y-scroll ">
+        <div className="relative flex-1 px-2.5 overflow-y-auto ">
           {/* main sidebar */}
 
           <div className="pt-4">
-            <div className="relative">
-              <div className="h-36 overflow-hidden rounded-xl">
-                <img
-                  src={config.sidebar.backdrop_image}
-                  alt={config.sidebar.backdrop_image}
-                />
-              </div>
-              <span className="absolute bottom-10 flex w-full justify-center">
+            <section className="py-2 w-full flex justify-center pt-4">
+              <div className="flex flex-col gap-5 items-center">
                 <img
                   src={config.sidebar.profile_image}
                   alt={config.sidebar.profile_image}
-                  className="h-20 w-20 rounded-full"
+                  className="rounded-full w-20"
                 />
-              </span>
-              <div className="font-merriweather relative mb-6 h-20 text-center">
-                <h4 className="absolute bottom-1 w-full text-xs font-bold uppercase tracking-widest">
-                  ray <span className="mx-1 text-gray-400">I</span> linux
-                  enthusiast
-                </h4>
+                <span className="text-xs font-bold tracking-widest">
+                  RAY <span className="px-1">I</span> LINUX ENTHUSIAST
+                </span>
+                <Social />
               </div>
-            </div>
-            <Divider>Navigation</Divider>
-            <div className="flex flex-col gap-3">
+            </section>
+            <section className="flex flex-col gap-3 pt-4">
+              <Divider>Navigation</Divider>
               {config.sidebar.links.navigation.map((n, index) => (
                 <Link
                   href={n.link}
                   key={index}
                   onClick={() => sidebarToggle(false)}
                 >
-                  <Button variant="secondary" className="relative">
-                    <Icon
-                      icon={n.icon}
-                      className="absolute left-4 text-gray-600 dark:text-white"
-                      fontSize={16}
-                    />
+                  <NavButton>
+                    <Icon icon={n.icon} fontSize={16} />
                     {n.label}
-                  </Button>
+                  </NavButton>
                 </Link>
               ))}
               <Divider>Interests</Divider>
               {config.sidebar.links.interests.map((i, index) => (
                 <a href={i.link} key={index} target="_blank">
-                  <Button variant="secondary">
-                    <Icon
-                      icon={i.icon}
-                      className="absolute left-4 text-gray-600 dark:text-white"
-                      fontSize={16}
-                    />
+                  <NavButton>
+                    <Icon icon={i.icon} fontSize={16} />
                     {i.label}
-                  </Button>
+                  </NavButton>
                 </a>
               ))}
               <Divider>checkout my</Divider>
               {config.sidebar.links.others.map((o, index) => (
                 <a href={o.link} target="_blank" key={index}>
-                  <Button variant="secondary">
-                    <Icon
-                      icon={o.icon}
-                      className="absolute left-4 text-gray-600 dark:text-white"
-                      fontSize={16}
-                    />
+                  <NavButton>
+                    <Icon icon={o.icon} fontSize={16} />
                     {o.label}
-                  </Button>
+                  </NavButton>
                 </a>
               ))}
-            </div>
+            </section>
           </div>
-          <div className="mt-4 w-full">
+          <div className="my-4 w-full">
             <Footer />
           </div>
         </div>

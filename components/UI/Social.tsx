@@ -1,29 +1,31 @@
-import { BsGithub, BsTelegram, BsReddit } from "react-icons/bs";
 import React from "react";
+import { BsGithub, BsTelegram, BsReddit } from "react-icons/bs";
 
 const Social = () => {
+  const className =
+    "rounded-full  transition-all  duration-500 hover:scale-110 text-2xl sm:text-xl";
   return (
-    <div className="mt-4 flex h-10 items-center gap-5">
+    <div className="flex h-10 items-center gap-5">
       <a
         href="https://github.com/ImRayy"
         target="_blank"
-        className="rounded-full  transition-all duration-500 hover:bg-black hover:p-2 hover:text-white"
+        className={`${className} `}
       >
-        <BsGithub size={20} />
+        <BsGithub />
       </a>
       <a
         href="https://telegram.me/im_rayy"
         target="_black"
-        className="rounded-full  transition-all duration-500 hover:bg-black hover:p-2 hover:text-white"
+        className={`${className} text-blue-400`}
       >
-        <BsTelegram size={20} />
+        <BsTelegram />
       </a>
       <a
         href="https://https://www.reddit.com/user/_ImRay_"
         target="_blank"
-        className="rounded-full  transition-all duration-500 hover:bg-black hover:p-2 hover:text-white"
+        className={`${className} text-orange-600`}
       >
-        <BsReddit size={20} />
+        <BsReddit />
       </a>
     </div>
   );

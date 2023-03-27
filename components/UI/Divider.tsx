@@ -5,11 +5,11 @@ interface DividerProps {
 }
 const Divider = ({ children }: DividerProps) => {
   return (
-    <div className="font-merriweather relative w-full py-4 text-center text-xs font-bold uppercase  tracking-wider">
-      {children}
+    <div className="relative w-full py-4 text-center text-sm font-semibold lowercase tracking-wider">
+      <span className="px-2">{children}</span>
       <div className="absolute bottom-5 flex w-full justify-between">
-        <div className="h-1 w-20 border-t-2 border-gray-200 dark:border-gray-500"></div>
-        <div className="h-1 w-20 border-t-2 border-gray-200 dark:border-gray-500"></div>
+        <div className="h-1 w-1/4 border-t-2 border-gray-200 dark:border-gray-500"></div>
+        <div className="h-1 w-1/4 border-t-2 border-gray-200 dark:border-gray-500"></div>
       </div>
     </div>
   );

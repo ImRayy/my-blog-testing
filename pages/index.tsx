@@ -1,9 +1,6 @@
-import Social from "@/components/UI/Social";
 import Recent from "@/components/home/Recent";
 import { fetchMarkdownData } from "@/lib/fetchMd";
 import { InferGetStaticPropsType } from "next";
-// import Button from "@/components/UI/Button";
-// import Theme from "@/components/Theme";
 import React from "react";
 
 export const getStaticProps = async () => {
@@ -28,8 +25,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           <p>ride with me on a tech boat?</p>
         </span>
       </section>
-      <Social />
-      <h4 className="my-6 text-xl font-extrabold">Recent Posts</h4>
+      <h4 className="mt-10 mb-6 text-xl font-extrabold">Recent Posts</h4>
       {posts.map(({ frontmatter, slug, content }) => (
         <Recent
           key={slug}

@@ -32,7 +32,7 @@ const ThemeOptions = () => {
       <Menu>
         <div>
           <Menu.Button className="block dark:hover:text-white">
-            <Icon icon={`${theme && getIconName(theme)}`} fontSize={20} />
+            <Icon icon={`${theme && getIconName(theme)}`} fontSize={24} />
           </Menu.Button>
           <Transition
             enter="transition duration-300 ease-out"
