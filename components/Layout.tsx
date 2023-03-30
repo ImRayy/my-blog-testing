@@ -1,13 +1,22 @@
 import Header from "./UI/Header";
 import Sidebar from "./UI/Sidebar";
+import { AnimatePresence, motion } from "framer-motion";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
+
+const variants = {
+  initial: { opacity: 0, x: -200, y: 0 },
+  enter: { opacity: 1, x: 0, y: 0 },
+  exit: { opacity: 0, x: 0, y: -100 },
+};
 export default function Layout({ children }: LayoutProps) {
   const [toggle, setToggle] = useState(false);
+  const router = useRouter();
 
   // Sidebar toggle
   const toggleHandler = () => {
@@ -17,7 +26,6 @@ export default function Layout({ children }: LayoutProps) {
       setToggle(true);
     }
   };
-
   return (
     <>
       <Head>
@@ -26,9 +34,19 @@ export default function Layout({ children }: LayoutProps) {
       </Head>
       <Header sidebarToggle={toggleHandler} />
       <Sidebar toggle={toggle} sidebarToggle={setToggle} />
-      <div className="flex min-h-screen justify-center scroll-smooth bg-white px-4 pt-20 dark:bg-primary dark:text-gray-300">
-        {children}
-      </div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={router.route}
+          variants={variants}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          transition={{ type: "linier" }}
+          className="flex min-h-screen justify-center scroll-smooth bg-white px-4 pt-20 dark:bg-primary dark:text-gray-300"
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence>
     </>
   );
 }
