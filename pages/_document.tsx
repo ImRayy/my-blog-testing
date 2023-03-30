@@ -4,9 +4,7 @@ export default function Document() {
   return (
     <Html lang="en" className="scroll-smooth ">
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="urf-8" />
-        <meta name="Description" content=""></meta>
+        <meta charSet="utf-8" />
       </Head>
       <body className="dark:bg-primary">
         <Main />

@@ -42,7 +42,7 @@ const ThemeOptions = () => {
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
-            <Menu.Items className="absolute  mt-2 rounded-lg border bg-white p-2 shadow-md dark:border-gray-600 dark:bg-primary dark:shadow-primary">
+            <Menu.Items className="absolute  mt-2 rounded-lg border bg-white p-2 shadow-md dark:border-gray-600 dark:bg-primary dark:shadow-primary z-50">
               <div className="w-full">
                 {options.map(({ value, icon }, index) => (
                   <Menu.Item key={index}>

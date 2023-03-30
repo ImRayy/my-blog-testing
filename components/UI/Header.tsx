@@ -7,7 +7,7 @@ interface HeaderProps {
 }
 const Header = ({ sidebarToggle }: HeaderProps) => {
   return (
-    <div className="fixed select-none w-full flex justify-center bg-white px-4 py-3 text-gray-600 dark:bg-primary dark:text-gray-300">
+    <div className="fixed select-none w-full flex justify-center bg-white px-4 py-3 text-gray-600 dark:bg-primary dark:text-gray-300 z-50">
       <div className="relative flex w-full items-center justify-end md:w-232">
         <span className="absolute left-0 flex transition">
           <ThemeOptions />

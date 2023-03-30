@@ -1,3 +1,4 @@
+import { MdxElements } from "@/components/MdxElements";
 import { fetchMarkdownData } from "@/lib/fetchMd";
 import { fetchJsonData, wordCount } from "@/lib/helpers";
 import { GetStaticPaths, InferGetStaticPropsType } from "next";
@@ -11,6 +12,7 @@ import remarkGfm from "remark-gfm";
 
 // Dynamic import post components
 const Tag = dynamic(() => import("@/components/posts/Tag"));
+const Platform = dynamic(() => import("@/components/posts/Platform"));
 
 interface PostParams {
   post: string;
@@ -91,7 +93,7 @@ const Post = ({
         </div>
       </header>
       <article className="markdown">
-        <MDXRemote {...content} components={{ Tag }} />
+        <MDXRemote {...content} components={MdxElements} />
       </article>
     </div>
   );
