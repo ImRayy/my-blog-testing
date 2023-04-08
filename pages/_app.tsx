@@ -25,7 +25,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       {/* Theme provider is an easy approach to switch between light, dark and system theme */}
       <ThemeProvider attribute="class">
         <LoadingBar
-          color="#dc1a1a"
+          color="#3b82f6"
           progress={progress}
           waitingTime={800}
           onLoaderFinished={() => setProgress(0)}
