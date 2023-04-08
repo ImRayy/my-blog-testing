@@ -15,8 +15,7 @@ export const getStaticProps = async () => {
 
 const blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    // <div className="flex min-h-screen justify-center px-4 pt-20 dark:bg-primary">
-    <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:w-232">
+    <div className="grid w-full grid-cols-1 gap-4 pb-10 sm:grid-cols-2 md:w-232">
       {posts?.map(({ frontmatter, slug, content }) => (
         <Link href={`post/${slug}`} key={slug}>
           <Post
@@ -31,7 +30,6 @@ const blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
         </Link>
       ))}
     </div>
-    // </div>
   );
 };
 

@@ -14,7 +14,7 @@ const Post = ({ title, date, headerImage, content }: PostProps) => {
     setDescription(extractDesc(content));
   }, [content]);
   return (
-    <div className="group relative flex w-full select-none flex-col overflow-hidden  rounded-md bg-transparent shadow-md transition  duration-150 focus:outline-none  active:scale-95">
+    <div className="group relative flex w-full select-none flex-col overflow-hidden rounded-md  bg-transparent bg-white shadow-md transition duration-150  focus:outline-none active:scale-95  dark:bg-accent">
       <div>
         <img src={headerImage} alt={title} />
       </div>
