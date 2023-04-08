@@ -15,27 +15,27 @@ export default function Sidebar({ toggle, sidebarToggle }: SidebarProps) {
   return (
     <div className="select-none">
       <div
-        className={`fixed transition dark:bg-transparent bg-opacity-40 bg-black duration-500 backdrop-blur-sm w-full right-0 h-full z-50  ${
+        className={`fixed right-0 z-50 h-full w-full bg-black bg-opacity-40 transition duration-500 dark:bg-transparent  ${
           toggle ? "-translate-x-0 " : "translate-x-full"
         } `}
         onClick={() => sidebarToggle(false)}
       />
 
       <div
-        className={`flex fixed transition-transform duration-500 z-50 w-80 h-full flex-col bg-white shadow-xl left-0 dark:bg-secondary dark:text-gray-300 ${
+        className={`fixed left-0 z-50 flex h-full w-80 flex-col bg-white shadow-xl transition-transform duration-500 dark:bg-secondary dark:text-gray-300 ${
           toggle ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="relative flex-1 px-2.5 overflow-y-auto ">
+        <div className="relative flex-1 overflow-y-auto px-2.5 ">
           {/* main sidebar */}
 
-          <div className="pt-4">
-            <section className="py-2 w-full flex justify-center pt-4">
-              <div className="flex flex-col gap-5 items-center">
+          <div className="pt-1">
+            <section className="flex w-full justify-center py-2 pt-4">
+              <div className="flex flex-col items-center gap-5">
                 <img
                   src={config.sidebar.profile_image}
                   alt={config.sidebar.profile_image}
-                  className="rounded-full w-20"
+                  className="w-20 rounded-full"
                 />
                 <span className="text-xs font-bold tracking-widest">
                   RAY <span className="px-1">I</span> LINUX ENTHUSIAST

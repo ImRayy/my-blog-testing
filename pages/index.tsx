@@ -1,10 +1,10 @@
 import Recent from "@/components/home/Recent";
-import { fetchMarkdownData } from "@/lib/fetchMd";
+import { fetchMarkdownDataSSR } from "@/lib/fetchMd";
 import { InferGetStaticPropsType } from "next";
 import React from "react";
 
 export const getStaticProps = async () => {
-  const posts = await fetchMarkdownData();
+  const posts = await fetchMarkdownDataSSR(`*[_type == 'blog'][0...3]`);
   return {
     props: {
       posts,
@@ -25,7 +25,7 @@ const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
           <p>ride with me on a tech boat?</p>
         </span>
       </section>
-      <h4 className="mt-10 mb-6 text-xl font-extrabold">Recent Posts</h4>
+      <h4 className="mb-6 mt-10 text-xl font-extrabold">Recent Posts</h4>
       {posts.map(({ frontmatter, slug, content }) => (
         <Recent
           key={slug}

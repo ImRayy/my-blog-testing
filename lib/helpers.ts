@@ -1,3 +1,6 @@
+import { ConfiguredSanityClient } from "./../components/sanity/Client";
+import imageUrlBuilder from "@sanity/image-url";
+
 export function filterContent(rawContent: string) {
   const content = rawContent
     // Codeblocks
@@ -28,4 +31,10 @@ export async function fetchJsonData() {
   const response = fetch(`${process.env.THEME_JSON}`);
   const data = await (await response).json();
   return data;
+}
+
+// Image Url builder for sanity
+export function urlFor(source: string) {
+  const builder = imageUrlBuilder(ConfiguredSanityClient);
+  return builder.image(source);
 }

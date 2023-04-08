@@ -23,6 +23,11 @@ export interface frontmatter {
   description: string;
   header_image: string;
   draft: boolean;
+  content: string;
+  // slug: string
+  slug: {
+    current: string;
+  };
   tags: [];
 }
 

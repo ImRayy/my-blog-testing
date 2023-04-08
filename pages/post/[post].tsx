@@ -1,6 +1,7 @@
 import { MdxElements } from "@/components/MdxElements";
-import { fetchMarkdownData } from "@/lib/fetchMd";
-import { fetchJsonData, wordCount } from "@/lib/helpers";
+import { fetchMarkdownDataSSR } from "@/lib/fetchMd";
+import { extractDesc, fetchJsonData, wordCount } from "@/lib/helpers";
+import { frontmatter } from "@/types/Interface";
 import { GetStaticPaths, InferGetStaticPropsType } from "next";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
@@ -19,7 +20,7 @@ interface PostParams {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await fetchMarkdownData();
+  const posts = await fetchMarkdownDataSSR();
   const paths = posts.map((post) => ({
     params: {
       post: post.slug,
@@ -32,9 +33,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }: { params: PostParams }) => {
-  const posts = await fetchMarkdownData();
+  const posts = await fetchMarkdownDataSSR();
   const post = posts.find((post) => post.slug === params.post);
-
   // using type guard method to secure return data, without this runtime error might occur
   if (!post) {
     return {
@@ -72,12 +72,12 @@ const Post = ({
   words,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className="overflow-hidden pb-20 md:w-232 select-none">
+    <div className="select-none overflow-hidden pb-20 md:w-232">
       <header>
-        <h1 className="text-xl font-semibold uppercase select-none">
+        <h1 className="select-none text-xl font-semibold uppercase">
           {frontmatter.title}
         </h1>
-        <div className="flex select-none items-center gap-3 pt-5 pb-4 text-sm font-medium text-gray-500">
+        <div className="flex select-none items-center gap-3 pb-4 pt-5 text-sm font-medium text-gray-500">
           <span className="flex items-center gap-1">
             <FaCalendarDay />
             {frontmatter.date}
