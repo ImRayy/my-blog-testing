@@ -6,6 +6,7 @@ import { config } from "@/config/config";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import React, { SetStateAction } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface SidebarProps {
   toggle: boolean;
@@ -14,12 +15,17 @@ interface SidebarProps {
 export default function Sidebar({ toggle, sidebarToggle }: SidebarProps) {
   return (
     <div className="select-none">
-      <div
-        className={`fixed right-0 z-50 h-full w-full bg-black bg-opacity-40 transition duration-500 dark:bg-transparent  ${
-          toggle ? "-translate-x-0 " : "translate-x-full"
-        } `}
-        onClick={() => sidebarToggle(false)}
-      />
+      <AnimatePresence mode="wait">
+        {toggle && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed z-50 h-full w-full bg-black bg-opacity-40 backdrop-blur-sm"
+            onClick={() => sidebarToggle(false)}
+          />
+        )}
+      </AnimatePresence>
 
       <div
         className={`fixed left-0 z-50 flex h-full w-80 flex-col bg-white shadow-xl transition-transform duration-500 dark:bg-secondary dark:text-gray-300 ${
