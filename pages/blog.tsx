@@ -1,11 +1,11 @@
-import { fetchMarkdownDataSSR } from "@/lib/fetchMd";
+import { fetchMarkdownData } from "@/lib/fetchMd";
 import { InferGetStaticPropsType } from "next";
 import Post from "@/components/UI/Post";
 import Link from "next/link";
 import React from "react";
-import { urlFor } from "@/lib/helpers";
+
 export const getStaticProps = async () => {
-  const posts = await fetchMarkdownDataSSR();
+  const posts = await fetchMarkdownData();
   return {
     props: {
       posts,
@@ -19,10 +19,7 @@ const blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
       {posts?.map(({ frontmatter, slug, content }) => (
         <Link href={`post/${slug}`} key={slug}>
           <Post
-            headerImage={urlFor(frontmatter.header_image)
-              .width(1600)
-              .height(900)
-              .url()}
+            headerImage={frontmatter.header_image}
             title={frontmatter.title}
             date={frontmatter.date}
             content={content}

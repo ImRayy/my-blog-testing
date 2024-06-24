@@ -1,10 +1,10 @@
 import Recent from "@/components/home/Recent";
-import { fetchMarkdownDataSSR } from "@/lib/fetchMd";
+import { fetchMarkdownData } from "@/lib/fetchMd";
 import { InferGetStaticPropsType } from "next";
 import React from "react";
 
 export const getStaticProps = async () => {
-  const posts = await fetchMarkdownDataSSR(`*[_type == 'blog'][0...3]`);
+  const posts = await fetchMarkdownData();
   return {
     props: {
       posts,

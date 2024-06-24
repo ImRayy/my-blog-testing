@@ -1,4 +1,3 @@
-import { ConfiguredSanityClient } from "./../components/sanity/Client";
 import imageUrlBuilder from "@sanity/image-url";
 
 export function filterContent(rawContent: string) {
@@ -34,7 +33,7 @@ export async function fetchJsonData() {
 }
 
 // Image Url builder for sanity
-export function urlFor(source: string) {
-  const builder = imageUrlBuilder(ConfiguredSanityClient);
-  return builder.image(source);
-}
+// export function urlFor(source: string) {
+//   const builder = imageUrlBuilder(ConfiguredSanityClient);
+//   return builder.image(source);
+// }

@@ -1,5 +1,5 @@
 import { MdxElements } from "@/components/MdxElements";
-import { fetchMarkdownDataSSR } from "@/lib/fetchMd";
+import { fetchMarkdownData } from "@/lib/fetchMd";
 import { extractDesc, fetchJsonData, wordCount } from "@/lib/helpers";
 import { frontmatter } from "@/types/Interface";
 import { GetStaticPaths, InferGetStaticPropsType } from "next";
@@ -20,7 +20,7 @@ interface PostParams {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await fetchMarkdownDataSSR();
+  const posts = await fetchMarkdownData();
   const paths = posts.map((post) => ({
     params: {
       post: post.slug,
@@ -33,7 +33,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }: { params: PostParams }) => {
-  const posts = await fetchMarkdownDataSSR();
+  const posts = await fetchMarkdownData();
   const post = posts.find((post) => post.slug === params.post);
   // using type guard method to secure return data, without this runtime error might occur
   if (!post) {
